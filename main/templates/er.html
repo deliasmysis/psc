@@ -1,0 +1,29 @@
+{%extends "base.html"%}
+
+{%block content%}
+<style>
+    h1 {
+        color: white;
+        text-align: center;
+    }
+    button {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        width: 60%;
+        height: 10%;
+        background-color: #0c4b86;
+        color: white;
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        padding-left: 10px;
+        border: 3px solid rgb(255, 254, 254);
+    }
+</style>
+<br><br><br>
+{%for i in msg%}
+    <h1>{{i}}</h1>
+    <br><br><br>
+    <a href="/"><button><h3>Ok</h3></button></a>
+{%endfor%}
+{%endblock%}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+    {% block content%}
+    
+    {%for i in msg%}
+    <h1>{{i}}</h1>
+    {%endfor%}
+    <style>
+       
+        h3 {
+            
+            color: white;
+        }
+        p {
+            text-align: center;
+            color: white;
+        }
+        button  {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            width: 60%;
+            height: 10%;
+            background-color: #0c4b86;
+            color: white;
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding-left: 10px;
+            border: 3px solid rgb(255, 254, 254);
+        }
+
+    </style>
+    <br>
+    <h3>Power</h3>
+    <hr>
+    <br>
+    <br><br>
+    <a href="/logout"><button>Logout</button></a>
+    <br>
+    <a href="/login"><button>Switch User</button></a>
+    <br>
+   <a href="/reg"><button>Create an account</button></a>
+    {%endblock%}
+</body>
+</html>

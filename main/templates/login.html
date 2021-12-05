@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    {% block content%}
+    
+    <style>
+       
+        h3 {
+            
+            color: white;
+        }
+        p {
+            text-align: center;
+            color: white;
+        }
+        input  {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            width: 60%;
+            height: 10%;
+            background-color: #0c4b86;
+            color: white;
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            padding-left: 10px;
+            border: 3px solid rgb(255, 254, 254);
+        }
+
+    </style>
+    <br>
+    <h3>Sign-In to Better than PlayStation Network</h3>
+    <hr>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <br>
+        <p>Sign-In ID (Username)</p>
+        <input type='text' name='user' placeholder="coder55" required>
+        <br>
+        <p>Password</p>
+        <input type="password" placeholder="Password" name='password' required>
+        <br><br>
+        <input type="submit" value="Sign In">
+        <br><br>
+    </form>
+    <a href="/reg"><button style="display: block; margin-right: auto; margin-left: auto; width: 70%; height: 10%; background-color: #0c4b86; color: white; background-position: 10px 10px; background-repeat: no-repeat; padding-left: 10px; border: 3px solid rgb(255, 254, 254);">New to better than PlayStation Network? Create an Account</button></a>
+
+    {%endblock%}
+</body>
+</html>

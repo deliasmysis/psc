@@ -1,0 +1,42 @@
+{%extends "base.html"%}
+
+{% block content%}
+    <style>
+        .box {
+            width: 90%;
+            height: 70%;
+
+        }
+        h3, li {
+                
+                color: white;
+            }
+            p {
+                text-align: center;
+                color: white;
+            }
+            input  {
+                display: block;
+                margin-right: auto;
+                margin-left: auto;
+                width: 60%;
+                height: 10%;
+                background-color: #0c4b86;
+                color: white;
+                background-position: 10px 10px;
+                background-repeat: no-repeat;
+                padding-left: 10px;
+                border: 3px solid rgb(255, 254, 254);
+            }
+    </style>
+    <br>
+    <h3>Create an account</h3>
+    <hr>
+    <form method="post">
+        {%csrf_token%}
+        <div class="box">{{form.as_p}}
+        <input type="submit" value="Create">
+    </div>
+    </form>
+{%endblock%}
+    

@@ -1,0 +1,206 @@
+{% extends "base.html"%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+  {%block content%}
+  
+    <header>
+      <br>
+        <div id="plus"></div>
+        <div id="info"></div>
+        <div id="textInfo">GitHub: brookehorizon</div>
+        <div id="friends"></div>
+        <div id="user"></div>
+        <div id="userName">{{user}}</div>
+        <div id="trophies"></div>
+        <a href="/power"><div id="power">Power</div></a>
+      </header>
+    
+    
+      <div id="games">
+        <a href="https://store.playstation.com/en-us/pages/latest"><div class="squareGame animated bounceInLeft">
+          <div class="imgGame ps"></div>
+          <div class="gameText">Start</div>
+          <span class="gameTitle">Playstation Store</span>
+          <div id="store">
+            <div id="god" class="storeGame"></div>
+            <div id="raider" class="storeGame"></div>
+            <div id="codi" class="storeGame"></div>
+            <div id="mafia" class="storeGame"></div>
+            <div id="destiny" class="storeGame"></div>
+            <div id="bt1" class="storeGame"></div>
+            <div id="lg" class="storeGame"></div>
+            <div id="per" class="storeGame"></div>
+          </div>
+        </div>
+        </a>
+        <div class="squareGame animated bounceInLeft">
+          <div class="imgGame new"></div>
+          <div class="gameText ascii">▼</div>
+          <span class="gameTitle">What's New</span>
+        </div>
+        <a href="https://beinternetawesome.withgoogle.com/en_us/interland"><div class="squareGame animated bounceInLeft">
+          <div class="imgGame Interland"></div>
+          <div class="gameText">Start</div>
+          <span class="gameTitle">Interland</span>
+        </div>
+      </a>
+        <a href="https://tympanus.net/Tutorials/TheAviator/"><div class="squareGame animated bounceInLeft">
+          <div class="imgGame The_Aviator"></div>
+          <div class="gameText">Start</div>
+          <span class="gameTitle">The Aviator</span>
+        </div></a>
+        <a href="http://hexgl.bkcore.com/play/"><div class="squareGame animated bounceInLeft">
+          <div class="imgGame HexGL"></div>
+          <div class="gameText">Start</div>
+          <span class="gameTitle">HexGL</span>
+        </div></a>
+        <a href="https://js13kgames.com/games/xx142-b2exe/index.html"><div class="squareGame animated bounceInLeft">
+          <div class="imgGame xx142-b2exe"></div>
+          <div class="gameText">Start</div>
+          <span class="gameTitle">xx142-b2exe</span>
+        </div></a>
+        <a href="https://youtube.com"><div class="squareGame animated bounceInLeft">
+          <div class="imgGame youtube"></div>
+          <div class="gameText">Start</div>
+          <span class="gameTitle">YouTube</span>
+        </div></a>
+          
+    
+     
+      <script>
+        /*PS4 Interface Version 1.0.0
+  thanks to
+  https://codepen.io/Kapilnemo/pen/bwYoPZ
+  and
+  https://codepen.io/rstacruz/pen/oxJqNv
+*/
+
+$(document).ready(function(){
+    $(".gameText").hide();
+    $('.gameTitle').hide();
+    $('#store').hide();
+    timeout();
+
+    // Variables for current position
+    var x, y;
+
+    function handleMouse(e) {
+      // Verify that x and y already have some value
+      if (x && y) {
+        // Scroll window by difference between current and previous positions
+        window.scrollBy(e.clientX - x, e.clientY - y);
+      }
+
+      // Store current position
+      x = e.clientX;
+      y = e.clientY;
+    }
+
+    // Assign handleMouse to mouse movement events
+    document.onmousemove = handleMouse;
+
+     $(window).scroll(function(){
+          if ($(this).scrollTop() > 10) {
+              $('header').css("background-color","rgba(34,123,165,.8)");
+          } else {
+              $('header').css("background-color","rgba(255,255,255,0)");
+          }
+      });
+  });
+
+  
+  var time = 0;
+
+  function timeout() {
+      setTimeout(function () {
+        if(time===0){
+        $("#textInfo").text("Rocket League new content!");
+        $("#textInfo").addClass("animated slideInDown");
+        time++;
+      }else
+        if(time===1){
+        $("#textInfo").text("Outlast 2 Demo Downloaded");
+        $("#textInfo").addClass("animated slideInDown");
+        time++;
+      }else
+        if(time===2){
+        $("#textInfo").text("Overwatch Update V 1.2.3");
+        $("#textInfo").addClass("animated slideInDown");
+        time=0;
+      }
+      setTimeout(function () {
+        $("#textInfo").removeClass("animated slideInDown");
+        }, 1000);
+          timeout();
+      }, 4000);
+  }
+
+  $(".squareGame").hover(
+    function(){
+      $(this).find('.gameText').show();
+      $(this).find('.gameTitle').show();
+      $(this).find('#store').show();
+    },
+    function(){
+      $(this).find('.gameText').hide();
+      $(this).find('.gameTitle').hide();
+      $(this).find('#store').hide();
+    }
+  );
+
+function init() {
+    'use strict'
+    function select(a) {
+      return document.querySelector(a);
+    }
+    var randomNum = Math.floor((Math.random() * 24) + 1),
+        triangle = select('.triangle img'),
+        circle = select('.circle img'),
+        cross = select('.cross img'),
+        box = select('.boxi img'),
+        link = 'http://kapilnemo.free.fr/codepen/playstation-loading/',
+        order = [
+          [1,2,3,4],
+          [1,2,4,3],
+          [1,3,2,4],
+          [1,3,4,2],
+          [1,4,2,3],
+          [1,4,3,2],
+          [2,1,3,4],
+          [2,1,4,3],
+          [2,3,1,4],
+          [2,3,4,1],
+          [2,4,1,3],
+          [2,4,3,1],
+          [3,1,2,4],
+          [3,1,4,2],
+          [3,2,1,4],
+          [3,2,4,1],
+          [3,4,1,2],
+          [3,4,2,1],
+          [4,1,2,3],
+          [4,1,3,2],
+          [4,2,1,3],
+          [4,2,3,1],
+          [4,3,1,2],
+          [4,3,2,1]
+        ];
+
+    triangle.src = link + order[randomNum][0] + ".png";
+    circle.src = link + order[randomNum][1] + ".png";
+    cross.src = link + order[randomNum][2] + ".png";
+    box.src = link + order[randomNum][3] + ".png";
+
+
+  }
+  window.setInterval(init, 2000);
+    </script>
+    {% endblock%}
+</body>
+</html>
